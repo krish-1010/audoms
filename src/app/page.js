@@ -1,101 +1,223 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import bg from "/public/imgs/backgroundImage.png";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import mainlogo from "/public/imgs/loogo.png";
+import { useRouter } from "next/navigation";
+import classpic from "/public/imgs/class.png";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const bgRef = useRef(null); // Reference to the wrapper div for animation
+  const bg2Ref = useRef(null); // Reference to the wrapper div for animation
+  const [visible, setVisible] = useState(false);
+  const [firstvisible, setFirstvisible] = useState(true);
+  const [secondvisible, setSecondvisible] = useState(false);
+  const [logoMoved, setLogoMoved] = useState(false);
+  const [textVisible, setTextVisible] = useState(false);
+  const logoRef = useRef(null);
+  const router = useRouter();
+  const pageRef = useRef(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const secondcomponent = useRef(null);
+  const classref = useRef(null);
+  const text2ref = useRef(null);
+  const secondpageref = useRef(null);
+
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    // Assuming your previous animations are managed here
+    // Simulate timing for when the logo should move up and text should appear
+
+    setTimeout(() => {
+      setTextVisible(true); // Show the text
+    }, 500); // Delay for text appearance after the logo moves
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setFirstvisible(false);
+      setSecondvisible(true);
+    }, 7000);
+  }, []);
+
+  useEffect(() => {
+    // Initialize a GSAP timeline
+    const tl = gsap.timeline({
+      defaults: {
+        duration: 1, // Adjust duration as needed
+        ease: "power2.inOut", // Smooth transitions for all animations
+      },
+    });
+
+    // First part: Flip (invert) the image
+    tl.to(bgRef.current, {
+      rotationX: 180,
+    });
+
+    // Logo scales down and centers itself
+    tl.fromTo(
+      logoRef.current,
+      { scale: 10, xPercent: -50, yPercent: -50 },
+      {
+        scale: 1,
+        autoAlpha: 1,
+        xPercent: -50,
+        yPercent: -50,
+        duration: 3,
+        ease: "elastic.out(1, 0.75)",
+      },
+      "<" // Starts at the end of the first flip
+    );
+
+    // Move the logo up slightly
+    tl.to(logoRef.current, {
+      y: "-30%", // Move up by 10% of its current position
+      duration: 0.5, // Short duration for a quick move
+      onComplete: () => setLogoMoved(true), // Trigger state change if needed
+    });
+
+    // Fade in and move down the text
+    tl.fromTo(
+      textRef.current,
+      { autoAlpha: 0, y: "-5%", x: "-50%" }, // Start slightly above its final position
+      {
+        autoAlpha: 1,
+        y: "100%", // Move down slightly
+
+        duration: 0.5, // Matching duration for smooth transition
+        ease: "power1.inOut",
+        onComplete: () => setTextVisible(true), // Trigger text visibility
+      }
+    );
+
+    // Rotate the background after the flip and scale
+    tl.to(bgRef.current, {
+      rotation: 180,
+      delay: 0.5, // Adding a delay to separate the rotation from the flip visually
+    });
+
+    gsap.to(pageRef.current, {
+      autoAlpha: 0,
+      delay: 6,
+      duration: 1,
+      ease: "power1.inOut",
+      //onComplete: () => router.push("/second"), // Navigate after fade out
+    }); //inga dhan
+
+    if (secondvisible) {
+      gsap.set([bg2Ref.current, classref.current, text2ref.current], {
+        autoAlpha: 0,
+      });
+      // Setup a timeline to fade out and navigate
+      const tl2 = gsap.timeline({
+        onComplete: () => router.push("/home"), // Navigate to the third page
+      });
+
+      // Animate to fade in each element
+      gsap.to(bg2Ref.current, {
+        autoAlpha: 1,
+        delay: 1,
+        duration: 0.5,
+        ease: "power2.inOut",
+      });
+      gsap.to(classref.current, {
+        autoAlpha: 1,
+        delay: 1, // Added delay to stagger the animations
+        duration: 1,
+        ease: "power2.inOut",
+      });
+      gsap.to(text2ref.current, {
+        autoAlpha: 1,
+        delay: 1, // Added delay to stagger the animations
+        duration: 1,
+        ease: "power2.inOut",
+      });
+
+      // Fade out the entire page after a delay or an event
+      tl2.to(secondpageref.current, {
+        autoAlpha: 0,
+        duration: 1,
+        delay: 4, // Set this delay based on your UX needs
+      });
+    }
+  }, [router, secondvisible]);
+
+  if (firstvisible) {
+    return (
+      <main
+        ref={pageRef}
+        className={`min-h-screen font-[family-name:var(--font-geist-sans)] ${
+          firstvisible ? "block" : "hidden"
+        }`}
+      >
+        <div className="min-h-screen min-w-full overflow-hidden relative">
+          {/* Wrapper div to apply transformation, referenced by bgRef */}
+          <div ref={bgRef} className="w-full h-full absolute">
+            <Image src={bg} fill alt="Background" layout="fill" />
+          </div>
+          {/* <div>
+            <Image src={mainlogo} alt="Main Logo" width={200} height={200} />
+          </div> */}
+          <div
+            ref={logoRef}
+            className={`absolute top-1/2 left-1/2 transition-opacity duration-500 ${
+              visible ? "opacity-100" : "opacity-0"
+            }`}
           >
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={mainlogo}
+              // className="opacity-0"
+              alt="Main Logo"
+              width={300}
+              height={300}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </div>
+          <div
+            ref={textRef}
+            className={`absolute top-1/2 left-1/2 transform transition-all duration-500 opacity-0 ${
+              textVisible ? "opacity-100" : "opacity-0"
+            }`}
           >
-            Read our docs
-          </a>
+            <p className="text-center text-4xl tracking-wider font-bold">
+              Placement Brouchure <br /> 2024
+            </p>
+            <p className="text-center text-2xl font-bold">Bactch 2024 - 25</p>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div
+        ref={secondpageref}
+        className="min-h-screen font-[family-name:var(--font-geist-sans)]"
+      >
+        <div className="min-h-screen min-w-full overflow-hidden relative">
+          <div ref={bg2Ref} className="w-full h-full absolute">
+            <Image src={bg} fill alt="Background" />
+          </div>
+          <div className="relative min-h-screen flex flex-col gap-14">
+            <h1
+              ref={text2ref}
+              className="text-6xl relative pt-8 font-semibold text-center"
+            >
+              Launching the leaders of tomorrow
+            </h1>
+            <div className="h-full w-full flex items-center gap-4 justify-center">
+              <div
+                ref={classref}
+                className="relative pt-14 w-[1200px] h-[700px] min-h-[500px]"
+              >
+                <Image src={classpic} fill alt="class" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
