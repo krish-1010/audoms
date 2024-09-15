@@ -56,7 +56,8 @@ export default function Second() {
       ref={secondpageref}
       className="min-h-screen font-[family-name:var(--font-geist-sans)]"
     >
-      <div ref={secondcomponent} className="min-h-screen min-w-full overflow-hidden relative">
+      <div className="min-h-screen min-w-full overflow-hidden relative">
+        {/* <div ref={secondcomponent} className="min-h-screen min-w-full overflow-hidden relative"> */}
         <div ref={bgRef} className="w-full h-full absolute">
           <Image src={bg} fill alt="Background" />
         </div>

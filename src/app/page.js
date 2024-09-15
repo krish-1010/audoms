@@ -21,7 +21,7 @@ export default function Home() {
   const router = useRouter();
   const pageRef = useRef(null);
 
-  const secondcomponent = useRef(null);
+  // const secondcomponent = useRef(null);
   const classref = useRef(null);
   const text2ref = useRef(null);
   const secondpageref = useRef(null);
