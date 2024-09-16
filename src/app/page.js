@@ -1,5 +1,7 @@
 "use client";
 
+import { DM_Sans } from "next/font/google";
+
 import Image from "next/image";
 import { useState } from "react";
 import bg from "/public/imgs/backgroundImage.png";
@@ -8,6 +10,11 @@ import { gsap } from "gsap";
 import mainlogo from "/public/imgs/loogo.png";
 import { useRouter } from "next/navigation";
 import classpic from "/public/imgs/class.png";
+
+const dmsans = DM_Sans({
+  subsets: ["latin"],
+  // weight: [400, 700],
+});
 
 export default function Home() {
   const bgRef = useRef(null); // Reference to the wrapper div for animation
@@ -150,7 +157,7 @@ export default function Home() {
     return (
       <main
         ref={pageRef}
-        className={`min-h-screen font-[family-name:var(--font-geist-sans)] ${
+        className={`${dmsans.className} min-h-screen  ${
           firstvisible ? "block" : "hidden"
         }`}
       >

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import bg from "/public/imgs/backgroundImage.png";
@@ -5,8 +7,11 @@ import ProfileBox from "../components/ProfileBox";
 import hodIcon from "/public/imgs/hodIcon.png";
 import { profdata } from "../data/proffesors";
 import Link from "next/link";
+import { useGSAP } from "@gsap/react";
 
-const page = () => {
+const Page = () => {
+  useGSAP(() => {});
+
   return (
     <div>
       <div className="absolute min-h-screen w-full">
@@ -34,4 +39,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -6,44 +6,49 @@ import { useState } from "react";
 import bg from "/public/imgs/backgroundImage.png";
 import Circle from "../components/Circle";
 import Link from "next/link";
+import { DM_Sans } from "next/font/google";
+const dmsans = DM_Sans({
+  subsets: ["latin"],
+  // weight: [400, 700],
+});
 
 const page = () => {
   return (
-    <div>
+    <div className={`${dmsans.className} font-bold tracking-tight`}>
       <div className="absolute min-h-screen w-full">
         <Image src={bg} fill alt="background" />
       </div>
       <div className="relative grid grid-cols-3 ml-auto mr-auto min-h-screen w-[1200px] ">
         {/* <!-- Column 1 --> */}
-        <div class="flex flex-col gap-20 w-full h-full  items-center justify-center">
+        <div class="flex flex-col gap-24 w-full h-full  items-center justify-center">
           {/* <div class="bg-blue-500 text-white p-4">Item 1A</div> */}
-          <Link href="/">
+          <Link href="/about">
             <Circle text="About AU" />
           </Link>
-          <Link href="/">
-            <Circle text="Demograpichs" />
+          <Link href="/demographics">
+            <Circle text="Demographics" />
           </Link>
         </div>
 
         {/* <!-- Column 2 --> */}
         <div class="flex flex-col gap-40 w-full h-full  items-center justify-center">
           {/* <div class="bg-blue-500 text-white p-4">Item 1A</div> */}
-          <Link href="/">
+          <Link href="/doms">
             <Circle text="DOMS" />
           </Link>
-          <div>About DOMS AU</div>
-          <Link href="/">
-            <Circle text="Fauculty" />
+          <div className="text-5xl font-bold">About DOMS AU</div>
+          <Link href="/professors">
+            <Circle text="Faculty" />
           </Link>
         </div>
 
         {/* <!-- Column 3 --> */}
-        <div class="flex flex-col gap-20 w-full h-full  items-center justify-center">
+        <div class="flex flex-col gap-24 w-full h-full  items-center justify-center">
           {/* <div class="bg-blue-500 text-white p-4">Item 1A</div> */}
-          <Link href="/">
+          <Link href="/scroll">
             <Circle text="Learning Journey" />
           </Link>
-          <Link href="/">
+          <Link href="/students">
             <Circle text="Student" />
           </Link>
         </div>

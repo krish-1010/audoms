@@ -4,6 +4,15 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Image from "next/image";
+import bg from "/public/imgs/backgroundImage.png";
+import { Inter } from "next/font/google";
+import styled from "styled-components";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,8 +38,8 @@ export default function Scroll() {
         trigger: container,
         pin: true,
         scrub: 1,
-        end: "+=3700",
-        markers: true,
+        end: "+=4200",
+        // markers: true,
       },
     });
 
@@ -41,9 +50,9 @@ export default function Scroll() {
       scrollTrigger: {
         trigger: wrapperRef.current,
         pin: svg,
-        scrub: 0.5,
-        end: "+=4700",
-        markers: true,
+        scrub: 1,
+        end: "+=5300",
+        // markers: true,
         // pinSpacing: false,
       },
     });
@@ -54,7 +63,7 @@ export default function Scroll() {
       scrollTrigger: {
         trigger: wrapperRef.current,
         start: "top left",
-        scrub: 0.5,
+        scrub: 1,
       },
     });
 
@@ -74,7 +83,7 @@ export default function Scroll() {
           containerAnimation: scrollTween,
           toggleActions: "restart none none none",
           start: "left center",
-          markers: true,
+          // markers: true,
         },
       });
     });
@@ -83,114 +92,149 @@ export default function Scroll() {
   }, []);
 
   return (
-    <div className="min-h-screen ">
-      <div ref={wrapperRef} className="wrapper overflow-x-hidden relative">
-        <div ref={containerRef} className="container scrollx flex w-[400vw] ">
-          <svg
-            ref={svgRef}
-            className="absolute top-[12em] left-[10vw] w-[300vw]"
-            viewBox="0 0 900 10"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+    <StyledWrapper>
+      <div className={`min-h-screen relative ${inter.className}`}>
+        <div className="fixed top-0 left-0 w-full h-screen -z-10">
+          <Image
+            src={bg}
+            layout="fill"
+            objectFit="cover"
+            alt="background"
+            priority
+          />
+        </div>
+
+        <div ref={wrapperRef} className="wrapper overflow-x-hidden relative">
+          <div
+            ref={containerRef}
+            className="container  scrollx flex w-[400vw] "
           >
-            <path
-              d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H445.1C445.563 1.71776 447.581 0 450 0C452.419 0 454.437 1.71776 454.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H454.9C454.437 8.28224 452.419 10 450 10C447.581 10 445.563 8.28224 445.1 6H9.89998Z"
-              fill="#D9D9D9"
-            />
-            <mask
-              id="mask0_0_1"
-              maskUnits="userSpaceOnUse"
-              x={0}
-              y={0}
-              width={1000}
-              height={200}
+            <div className="absolute flex flex-col gap-2 items-center left-[40%] top-14 w-[600px]">
+              <h1 className="text-5xl font-bold">Our Learning Journey</h1>
+              <h2 className="text-[1.7rem] text-cyan-400 font-bold">
+                Mapping the academic curriculum
+              </h2>
+            </div>
+
+            <svg
+              ref={svgRef}
+              className="absolute top-[18em] left-[10vw] w-[300vw]"
+              viewBox="0 0 900 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
                 d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H445.1C445.563 1.71776 447.581 0 450 0C452.419 0 454.437 1.71776 454.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H454.9C454.437 8.28224 452.419 10 450 10C447.581 10 445.563 8.28224 445.1 6H9.89998Z"
-                fill="#D9D9D9"
+                fill="#152329"
               />
-            </mask>
-            <g mask="url(#mask0_0_1)">
-              <rect
-                ref={maskRef}
-                className="mask w-0"
-                y={-49}
-                height={99}
-                fill="black"
-              />
-            </g>
-          </svg>
-          <section
-            ref={section1Ref}
-            className="section pin sec1 w-[100vw] py-[20vw] px-[10vw]"
-          >
-            <span>Advanced1</span>
-            <h1 className=" text-5xl m-0">Signify Elegance</h1>
+              <mask
+                id="mask0_0_1"
+                maskUnits="userSpaceOnUse"
+                x={0}
+                y={0}
+                width={1000}
+                height={200}
+              >
+                <path
+                  d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H445.1C445.563 1.71776 447.581 0 450 0C452.419 0 454.437 1.71776 454.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H454.9C454.437 8.28224 452.419 10 450 10C447.581 10 445.563 8.28224 445.1 6H9.89998Z"
+                  fill="#D9D9D9"
+                />
+              </mask>
+              <g mask="url(#mask0_0_1)">
+                <rect
+                  ref={maskRef}
+                  className="mask w-4"
+                  y={-49}
+                  height={99}
+                  fill="#00DDFF"
+                />
+              </g>
+            </svg>
+            <section
+              ref={section1Ref}
+              className="section pin sec1 w-[100vw] py-[20vw] px-[10vw]"
+            >
+              <span></span>
+              <h1 className=" text-7xl m-0 pb-2 text-[#00DDFF]">Q1</h1>
 
-            <div className="col flex gap-[3em]">
-              <p className="text-xs w-[50vw]">
-                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
-                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
-                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
-                risus amet urna. Urna egestas lorem.
-              </p>
-              <p className="text-xs w-[50vw]">
-                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
-                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
-                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
-                risus amet urna. Urna egestas lorem.
-              </p>
-            </div>
-          </section>
-          {/*  */}
-          <section
-            ref={section2Ref}
-            className="sec2 section w-[100vw]  py-[20vw] px-[10vw]"
-          >
-            <span className="anim">Advanced2</span>
-            <h1 className="anim text-5xl m-0">Signify Elegance</h1>
+              <div className="col flex gap-[3em]">
+                <div className="text-2xl w-[50vw] ml-2">
+                  <div>Management Principles and Organizational</div>
+                  <div>Behavior Quantitative Techniques</div>
+                  <div>Marketing Management</div>
+                  <div>Accounting for Managers</div>
+                </div>
+                <div className="text-2xl w-[50vw]">
+                  <div>Managerial Economics</div>
+                  <div>Legal Systems in Business Information</div>
+                  <div>Systems for Business</div>
+                  <div>Soft Skills I - Executive Communication</div>
+                </div>
+              </div>
+            </section>
+            {/*  */}
+            <section
+              ref={section2Ref}
+              className="sec2 section w-[100vw]  py-[20vw] px-[10vw]"
+            >
+              {/* <span className="anim">Advanced2</span> */}
+              <h1 className="anim text-7xl m-0 pb-2 text-[#00DDFF]">Q2</h1>
 
-            <div className="anim col flex gap-[3em]">
-              <p className="text-xs w-[50vw]">
-                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
-                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
-                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
-                risus amet urna. Urna egestas lorem.
-              </p>
-              <p className="text-xs w-[50vw]">
-                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
-                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
-                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
-                risus amet urna. Urna egestas lorem.
-              </p>
-            </div>
-          </section>
-          {/*  */}
-          <section
-            ref={section3Ref}
-            className="sec3 section w-[100vw] py-[20vw] px-[10vw]"
-          >
-            <span className="anim">Advanced3</span>
-            <h1 className="anim text-5xl m-0">Signify Elegance</h1>
+              <div className="col anim flex gap-[3em]">
+                <div className="text-2xl anim w-[50vw] ml-2">
+                  <div>Management Principles and Organizational</div>
+                  <div>Behavior Quantitative Techniques</div>
+                  <div>Marketing Management</div>
+                  <div>Accounting for Managers</div>
+                </div>
+                <div className="text-2xl w-[50vw]">
+                  <div>Managerial Economics</div>
+                  <div>Legal Systems in Business Information</div>
+                  <div>Systems for Business</div>
+                  <div>Soft Skills I - Executive Communication</div>
+                </div>
+              </div>
+            </section>
+            {/*  */}
+            <section
+              ref={section3Ref}
+              className="sec3 section w-[100vw] py-[20vw] px-[10vw]"
+            >
+              {/* <span className="anim">Advanced3</span> */}
+              <h1 className="anim text-7xl m-0 pb-2 text-[#00DDFF]">Q3</h1>
 
-            <div className="anim col flex gap-[3em]">
-              <p className="text-xs w-[50vw]">
-                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
-                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
-                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
-                risus amet urna. Urna egestas lorem.
-              </p>
-              <p className="text-xs w-[50vw]">
-                Lorem ipsum dolor sit amet consectetur. Egestas euismod nec sit
-                sed massa turpis in. Sit praesent arcu leo lectus pellentesque.
-                Ornare elit orci morbi volutpat. Ut fermentum lorem morbi quis
-                risus amet urna. Urna egestas lorem.
-              </p>
-            </div>
-          </section>
+              <div className="col anim flex gap-[3em]">
+                <div className="text-2xl anim w-[50vw] ml-2">
+                  <div>Management Principles and Organizational</div>
+                  <div>Behavior Quantitative Techniques</div>
+                  <div>Marketing Management</div>
+                  <div>Accounting for Managers</div>
+                </div>
+                <div className="text-2xl w-[50vw]">
+                  <div>Managerial Economics</div>
+                  <div>Legal Systems in Business Information</div>
+                  <div>Systems for Business</div>
+                  <div>Soft Skills I - Executive Communication</div>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
+        {/* <section className="bg-blue-300 h-[100vh]"></section> */}
       </div>
-      <section className="bg-blue-300 h-[100vh]"></section>
-    </div>
+    </StyledWrapper>
   );
 }
+
+const StyledWrapper = styled.div`
+  .col::before {
+    content: "";
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 140px;
+    width: 10px;
+    background: #225599;
+    display: block;
+  }
+`;

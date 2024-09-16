@@ -1,16 +1,14 @@
 import localFont from "next/font/local";
+
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+import { DM_Sans } from "next/font/google";
+const dmsans = DM_Sans({
+  subsets: ["latin"],
+  // weight: [400, 700],
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
+import Script from "next/script";
 
 export const metadata = {
   title: "Create Next App",
@@ -20,9 +18,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
+      {/* <Script
+        src="https://widget.cxgenie.ai/widget.js"
+        data-aid="22954b1e-dbfd-4a00-862e-ab020c3976bc"
+        data-lang="en"
+      /> */}
+      <body className={`${dmsans.className} antialiased`}>
+        {/* <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      > */}
+
         {children}
       </body>
     </html>
