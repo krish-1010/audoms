@@ -3,9 +3,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import bg from "/public/imgs/backgroundImage.png";
-import ProfileBox from "../components/ProfileBox";
+import Company from "../components/Company";
 import hodIcon from "/public/imgs/hodIcon.png";
-import { profdata } from "../data/proffesors";
+import { companies } from "../data/companies";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
@@ -19,11 +19,11 @@ const Page = () => {
   const [visible, setvisible] = useState(false);
 
   useEffect(() => {
-    document.body.classList.add("overflow-hidden");
-
     setTimeout(() => {
       setvisible(true);
     }, 500);
+
+    document.body.classList.add("overflow-hidden");
 
     // Clean up: Remove the class when the component unmounts
     return () => {
@@ -57,7 +57,7 @@ const Page = () => {
         "<"
       )
       // Fade out t2
-      .to(t2, { opacity: 1, y: -250, duration: 1 }, ">1")
+      .to(t2, { opacity: 1, y: -120, duration: 1 }, ">1")
 
       // Final scale down of background and fade in content
       .to(bgi, { scale: 1, duration: 2, ease: "power2.inOut" })
@@ -65,9 +65,15 @@ const Page = () => {
   });
 
   return (
-    <div>
-      <div ref={bgRef} className="w-full h-full absolute">
-        <Image src={bg} fill alt="Background" layout="fill" />
+    <div className="">
+      <div ref={bgRef} className="w-full  h-full absolute">
+        <Image
+          src={bg}
+          className=""
+          fill
+          alt="Background"
+          layout="fill"
+        />
       </div>
       <div className="relative flex justify-center ">
         <h1
@@ -76,31 +82,29 @@ const Page = () => {
           }`}
           ref={t1Ref}
         >
-          Meet the Minds Shaping Tomorrow <br /> Visionaries of the Helm
+          See Who&apos;s Hired Our Talent, <br /> The Leading Companies That
+          Trust Our Talent
         </h1>
         <h1
-          className={`top-1/2 text-center absolute text-5xl font-bold ${
+          className={`top-1/2 text-center absolute text-5xl mb-0 font-bold ${
             visible ? "block" : "hidden"
           }`}
           ref={t2Ref}
         >
-          The Exemplary Educators : <br />
-          Our Distinguished Faculty
+          Joining us are our valued corporate patrons
         </h1>
         <div
           ref={contentRef}
-          className={`grid grid-cols-1 max-w-[2600px] mt-[14rem] sm:grid-cols-2 md:grid-cols-3 gap-8 ${
+          className={`grid  grid-cols-1 max-w-[2600px] mt-[17rem] sm:grid-cols-2 md:grid-cols-5 gap-8 ${
             visible ? "block" : "hidden"
           }`}
         >
-          {profdata.map((prof) => (
+          {companies.map((prof) => (
             <div className="max-w-[300px]" key={prof.id}>
               <Link href={`/professors/${prof.id}`}>
-                <ProfileBox
+                <Company
                   img={prof.img}
-                  name={prof.name}
-                  desc={prof.title}
-                  qual={prof.qualification}
+
                   //   domain={prof.domain}
                 />
               </Link>

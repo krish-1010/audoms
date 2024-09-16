@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 
@@ -19,16 +19,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* <Script
+      <Script
         src="https://widget.cxgenie.ai/widget.js"
         data-aid="22954b1e-dbfd-4a00-862e-ab020c3976bc"
         data-lang="en"
-      /> */}
+      />
       <body className={`${dmsans.className} antialiased`}>
         {/* <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > */}
-        <Analytics  />
+        <Analytics />
         {children}
       </body>
     </html>
