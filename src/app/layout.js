@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/react"
 
 import "./globals.css";
 
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
         {/* <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > */}
-
+        <Analytics  />
         {children}
       </body>
     </html>
