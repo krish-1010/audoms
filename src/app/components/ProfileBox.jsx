@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ProfileBox = ({ img, name, desc, qual }) => {
   return (
-    <div className="w-[300px] ">
+    <div className="w-[350px] p-2">
       <div className="rounded-md py-4 w-full flex gap-1 border border-white text-white">
         <div className="w-[40%] flex justify-center items-center">
           <div className="absolute rounded-full h-[70px] w-[70px]">

@@ -36,7 +36,12 @@ const Page = () => {
     const t1 = t1Ref.current;
     const t2 = t2Ref.current;
     const cont = contentRef.current;
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+      onComplete: () => {
+        // Remove overflow-hidden when the animations are complete
+        document.body.classList.remove("overflow-hidden");
+      },
+    });
 
     tl.to(bgi, { scale: 3.8, rotate: 45, duration: 2, ease: "power2.inOut" })
 
@@ -48,6 +53,7 @@ const Page = () => {
       )
       // Fade out t1 and rotate background to original after delay
       .to(t1, { opacity: 0, duration: 1 }, ">1")
+      .set(t1, { css: { zIndex: -10 } })
       .to(bgi, { rotate: 0, duration: 2, ease: "power2.inOut" })
 
       // Fade in t2 as background starts to flip
@@ -57,11 +63,12 @@ const Page = () => {
         "<"
       )
       // Fade out t2
-      .to(t2, { opacity: 1, y: -250, duration: 1 }, ">1")
+      .to(t2, { opacity: 1, y: -420, duration: 1 }, ">1")
 
       // Final scale down of background and fade in content
       .to(bgi, { scale: 1, duration: 2, ease: "power2.inOut" })
-      .from(cont, { opacity: 0, duration: 2, ease: "power2.inOut" }, "<");
+      .from(cont, { opacity: 0, duration: 2, ease: "power2.inOut" }, "<")
+      .to(bgi, { scale: 1.2, duration: 1, ease: "power2.out" });
   });
 
   return (
@@ -94,7 +101,7 @@ const Page = () => {
           }`}
         >
           {profdata.map((prof) => (
-            <div className="max-w-[300px]" key={prof.id}>
+            <div className="max-w-[450px]" key={prof.id}>
               <Link href={`/professors/${prof.id}`}>
                 <ProfileBox
                   img={prof.img}

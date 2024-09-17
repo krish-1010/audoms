@@ -3,13 +3,12 @@
 import React from "react";
 import Image from "next/image";
 import bg from "/public/imgs/backgroundImage.png";
-import { ResponsiveHoneycomb, Hexagon } from 'react-honeycomb';
+// import { ResponsiveHoneycomb, Hexagon } from "react-honeycomb";
+import StudentProfile from "@/app/components/StudentProfile";
 // import { profdata } from "../../../data/proffesors";
 import { bao, fm, mhr, fba, fhr, mop, ohr } from "../../../data/studentsdata";
 
-
 const page = ({ params }) => {
-
   const specializationMapping = {
     bao, // Business Analytics and Operations
     ohr, // Operations and Human Resource
@@ -24,15 +23,9 @@ const page = ({ params }) => {
 
   const specialization = params.spec;
 
-
-
   const students = specializationMapping[specialization];
 
   const student = students.find((student) => student.id === sid);
-
-  
-
-  
 
   if (!student) return <div>student not found</div>;
 
@@ -41,8 +34,8 @@ const page = ({ params }) => {
       <div className="absolute min-h-screen w-full">
         <Image src={bg} fill alt="background" />
       </div>
-      <div className="relative">
-        <div>{student.name}</div>
+      <div className="relative h-screen top-1/2">
+        <StudentProfile student={student} />
       </div>
     </div>
   );

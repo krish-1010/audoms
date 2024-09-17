@@ -2,17 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import bg from "/public/imgs/backgroundImage.png";
-import Circle from "../../components/Circle";
-import StudentCircle from "../../components/StudentCircle";
-import Link from "next/link";
-import exp from "constants";
-import Mop from "../../components/Mop";
-import Fhr from "../../components/Fhr";
-import Fba from "../../components/Fba";
-import Mhr from "../../components/Mhr";
-import Fm from "../../components/Fm";
+import { useState, useEffect, useRef } from "react";
+
 import Test from "../../components/Test";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -22,6 +13,11 @@ import { useGSAP } from "@gsap/react";
 import { bao, fm, mhr, fba, fhr, mop, ohr } from "../../data/studentsdata";
 
 const Page = ({ params }) => {
+  const headingRef = useRef(null);
+  const gridRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const [textVisible, setTextVisible] = useState(false);
+
   const spec = params.spec;
 
   console.log(spec);
@@ -48,33 +44,6 @@ const Page = ({ params }) => {
   };
 
   const fullHeading = fullSpecNames[spec];
-
-  // const tm = [
-  //   {
-  //     id: 1,
-  //     name: "John Doe",
-  //     img: "/public/imgs/johndoe.png",
-  //     qual: "B.E. Mechanical",
-  //     skills: "Python, Java, C++",
-  //     cert: "Data Science",
-  //     intern: "Google",
-  //     exp: "2 years",
-  //     linkedin: "https://www.linkedin.com",
-  //     email: "example@mail.com",
-  //   },
-  //   {
-  //     id: 1,
-  //     name: "John Doe",
-  //     img: "/public/imgs/johndoe.png",
-  //     qual: "B.E. Mechanical",
-  //     skills: "Python, Java, C++",
-  //     cert: "Data Science",
-  //     intern: "Google",
-  //     exp: "2 years",
-  //     linkedin: "https://www.linkedin.com",
-  //     email: "example@mail.com",
-  //   },
-  // ];
 
   const renderGrid = () => {
     if (students.length === 1) {
@@ -138,9 +107,6 @@ const Page = ({ params }) => {
         />
       );
     } else <div className="text-4xl font-bold">Coming Soon</div>;
-    // } else if (students.length == 8) {
-    //   return <Fm spec={spec} students={students} />;
-    // }
 
     // Add more conditions as necessary for other specializations
   };
@@ -155,6 +121,9 @@ const Page = ({ params }) => {
     );
     // Assuming your previous animations are managed here
     // Simulate timing for when the logo should move up and text should appear
+    setTimeout(() => {
+      setTextVisible(true); // Show the text
+    }, 100);
     return () => {
       document.body.classList.remove(
         "bg-background-pattern",
@@ -166,9 +135,44 @@ const Page = ({ params }) => {
     };
   }, []);
 
+  // Using useGSAP to create the animations
   useGSAP(() => {
-    
-  });
+    // Initial opacity set for the involved elements
+    gsap.set([headingRef.current, gridRef.current], { opacity: 0 });
+
+    // Animation timeline
+    const tl = gsap.timeline();
+
+    // Check if spec is loaded to start animations
+    if (spec) {
+      tl.to(headingRef.current, {
+        duration: 2,
+        opacity: 1,
+        // y: "-360", // Moves the header up by half its height
+        ease: "power2.out",
+      })
+        .to(
+          headingRef.current,
+          {
+            duration: 1,
+            // opacity: 1,
+            delay: 0.5,
+            y: "-360", // Moves the header up by half its height
+            ease: "power2.out",
+          },
+          "-=0.5"
+        )
+        .to(
+          gridRef.current,
+          {
+            duration: 0.5,
+            opacity: 1,
+            ease: "power2.inOut",
+          },
+          "+=0.5"
+        ); // Starts half a second before the previous animation ends for a smooth transition
+    }
+  }, [spec, fullHeading]);
 
   const students = specializationMapping[spec];
 
@@ -181,113 +185,36 @@ const Page = ({ params }) => {
 
     console.log(students[0].img);
 
-    const numCols = Math.ceil(Math.sqrt(students.length + 1)); // +1 for the title
-    const midCol = Math.floor(numCols / 2);
-
     console.log(students.length);
 
     return (
       <div className={` font-bold tracking-tight`}>
-        {/* <div className="absolute min-h-screen  w-full">
-          <Image src={bg} className="" fill alt="background" />
-        </div> */}
         <div className="absolute w-full h-full bg-background-pattern bg-repeat bg-center bg-cover z-[-1]">
           {/* No content inside this div, it's just for the background */}
         </div>
 
-        {spec ? <h1>{fullHeading}</h1> : <h1>Loading...</h1>}
+        {spec ? (
+          <h1
+            className={`${
+              textVisible ? "block" : "hidden"
+            }  text-4xl font-bold text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
+            ref={headingRef}
+          >
+            {fullHeading}
+          </h1>
+        ) : (
+          <h1>Loading...</h1>
+        )}
 
-        <div className="w-full h-screen ">
+        <div
+          ref={gridRef}
+          className={`${textVisible ? "block" : "hidden"} w-full h-screen `}
+        >
           {renderGrid()}
-          {/* <div className="max-w-[1200px]  min-w-[100px] border border-transparent mr-auto ml-auto">
-            
-          </div> */}
         </div>
       </div>
     );
   }
 };
-
-{
-  /* <div
-className={`relative grid grid-cols-${numCols} ml-auto mr-auto min-h-screen w-[1200px] gap-4 p-4`}
->
- <div className="relative grid grid-cols-5 ml-auto mr-auto min-h-screen w-[1200px] "> 
-{students.map((student, index) => {
-  // Calculate row and col placement
-  const row = Math.floor(index / numCols);
-  const col = index % numCols;
-  const isCenter = row === midCol && col === midCol;
-
-  if (isCenter) {
-    return (
-      <div key="title" className="text-center">
-        Our Special Students
-      </div>
-    );
-  }
-
-  return (
-    <StudentCircle
-      key={student.id}
-      student={student}
-      className={`col-start-${col + 1} row-start-${row + 1}`}
-    />
-  );
-})}
-</div> */
-}
-
-// {/* <!-- Column 1 --> */}
-// <div class="flex flex-col gap-24 w-full h-full  items-center justify-center">
-// {/* <div class="bg-blue-500 text-white p-4">Item 1A</div> */}
-// <Link href="/1">
-//   <Circle text="Praveen" />
-// </Link>
-// <Link href="/demographics">
-//   <Circle text="Demographics" />
-// </Link>
-// </div>
-// <div class="flex flex-col gap-24 w-full h-full  items-center justify-center">
-// {/* <div class="bg-blue-500 text-white p-4">Item 1A</div> */}
-// <Link href="/1">
-//   <Circle text="Praveen" />
-// </Link>
-// <Link href="/demographics">
-//   <Circle text="Demographics" />
-// </Link>
-// </div>
-
-// {/* <!-- Column 2 --> */}
-// <div class="flex flex-col gap-40 w-full h-full  items-center justify-center">
-// {/* <div class="bg-blue-500 text-white p-4">Item 1A</div> */}
-// <Link href="/doms">
-//   <StudentCircle />
-// </Link>
-// <div className="text-5xl font-bold">About DOMS AU</div>
-// <Link href="/professors">
-//   <Circle text="Faculty" />
-// </Link>
-// </div>
-
-// {/* <!-- Column 3 --> */}
-// <div class="flex flex-col gap-24 w-full h-full  items-center justify-center">
-// {/* <div class="bg-blue-500 text-white p-4">Item 1A</div> */}
-// <Link href="/scroll">
-//   <Circle text="Learning Journey" />
-// </Link>
-// <Link href="/students">
-//   <Circle text="Student" />
-// </Link>
-// </div>
-// <div class="flex flex-col gap-24 w-full h-full  items-center justify-center">
-// {/* <div class="bg-blue-500 text-white p-4">Item 1A</div> */}
-// <Link href="/scroll">
-//   <Circle text="Learning Journey" />
-// </Link>
-// <Link href="/students">
-//   <Circle text="Student" />
-// </Link>
-// </div>
 
 export default Page;
