@@ -23,7 +23,7 @@ const Page = () => {
     };
   }, []);
   return (
-    <div className={`${dmsans.className} font-bold tracking-tight`}>
+    <div className={`${dmsans.className} text-white font-bold tracking-tight`}>
       <div className="absolute min-h-screen w-full">
         <Image src={bg} fill alt="background" />
       </div>

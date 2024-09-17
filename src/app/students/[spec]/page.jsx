@@ -6,10 +6,37 @@ import { useState, useEffect } from "react";
 import bg from "/public/imgs/backgroundImage.png";
 import Circle from "../../components/Circle";
 import Link from "next/link";
+import exp from "constants";
 
+const Page = ({ params }) => {
+  const spec = params.spec;
+  const tm = [
+    {
+      id: 1,
+      name: "John Doe",
+      img: "/public/imgs/johndoe.png",
+      qual: "B.E. Mechanical",
+      skills: "Python, Java, C++",
+      cert: "Data Science",
+      intern: "Google",
+      exp: "2 years",
+      linkedin: "https://www.linkedin.com",
+      email: "example@mail.com",
+    },
+    {
+      id: 1,
+      name: "John Doe",
+      img: "/public/imgs/johndoe.png",
+      qual: "B.E. Mechanical",
+      skills: "Python, Java, C++",
+      cert: "Data Science",
+      intern: "Google",
+      exp: "2 years",
+      linkedin: "https://www.linkedin.com",
+      email: "example@mail.com",
+    },
+  ];
 
-
-const Page = ({spec}) => {
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
     // Assuming your previous animations are managed here
@@ -28,8 +55,8 @@ const Page = ({spec}) => {
         {/* <!-- Column 1 --> */}
         <div class="flex flex-col gap-24 w-full h-full  items-center justify-center">
           {/* <div class="bg-blue-500 text-white p-4">Item 1A</div> */}
-          <Link href="/about">
-            <Circle text="About AU" />
+          <Link href="/1">
+            <Circle text="Praveen" />
           </Link>
           <Link href="/demographics">
             <Circle text="Demographics" />

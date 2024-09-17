@@ -15,10 +15,10 @@ const page = () => {
           <div className="relative col-span-4">
             <Image src={au} fill alt="au" />
           </div>
-          <div className="col-span-6 px-20 py-10">
-            <div className="flex flex-col h-full justify-center">
-              <div>About AU</div>
-              <div>
+          <div className="col-span-6 h-full px-20 py-10">
+            <div className="flex flex-col h-full justify-center gap-4">
+              <h1 className="text-4xl font-bold">About AU</h1>
+              <div className="text-xl">
                 Anna University, founded in 1978, is a top Tamil Nadu state
                 university with an &apos;A++&apos; NAAC grade and a global rank
                 of 427. It aims to be a world-class leader in tech education,
