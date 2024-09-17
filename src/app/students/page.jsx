@@ -27,37 +27,37 @@ const Page = () => {
     {
       id: 1,
       icon: <FaChartBar size={70} />,
-      text: "Finance, Business Analysis",
+      text: "Finance & Business Analytics",
       spec: "fba",
     },
     {
       id: 2,
       icon: <MdManageAccounts size={70} />,
-      text: "Human Resource Management, Marketing",
-      spec: "hrm",
+      text: "Human Resource Management & Marketing",
+      spec: "mhr",
     },
     {
       id: 3,
       icon: <MdWebhook size={70} />,
-      text: "Operations, Human Resource",
+      text: "Operations & Human Resource",
       spec: "ohr",
     },
     {
       id: 4,
       icon: <GrMoney size={70} />,
-      text: "Finance, Operations",
-      spec: "fo",
+      text: "Business Analytics and Operations", //
+      spec: "bao",
     },
     {
       id: 5,
       icon: <GiReceiveMoney size={70} />,
-      text: "Finance, Human Resource",
+      text: "Finance & Human Resource",
       spec: "fhr",
     },
     {
       id: 6,
       icon: <SiGooglemarketingplatform size={70} />,
-      text: "Finance, Marketing",
+      text: "Finance & Marketing",
       spec: "fm",
     },
 
@@ -65,7 +65,7 @@ const Page = () => {
       id: 7,
       icon: <GrWorkshop size={70} />,
       text: "Operations & Marketing",
-      spec: "om",
+      spec: "mop",
     },
     {
       id: 8,

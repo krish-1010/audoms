@@ -31,7 +31,7 @@ const Fhr = ({ spec, students }) => {
 
       {/* <!-- Column 3 --> */}
 
-      <div class="flex flex-col gap-24 w-full h-full  items-center justify-center">
+      <div class="flex flex-col gap-24 w-full h-full mt-28 items-center justify-center">
         <Link href={`/student/${spec}/students${students[0].id}`}>
           <StudentCircle img={students[1].img} />
         </Link>

@@ -12,7 +12,7 @@ export const bao = [
       "Microsoft Office Suite",
     ],
     cert: [
-      "Fundamentals of data analytics – Internshala",
+      "Fundamentals of data analytics - Internshala",
       "Data Literacy - Data Camp",
       "Accounting Fundamentals - CFI",
     ],
@@ -20,7 +20,7 @@ export const bao = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "meenakshiv@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/bao/1.jpg",
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ export const bao = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "mohanapriyass@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/bao/2.jpg",
   },
   {
     id: 3,
@@ -63,7 +63,7 @@ export const bao = [
     exp: "Project Engineer, Teaching Associate (4.5 years)",
     linkedin: "https://www.linkedin.com",
     email: "venkatharishnm@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/bao/3.jpg",
   },
 ];
 
@@ -93,7 +93,7 @@ export const fm = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "akashrajn@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fm/1.jpg",
   },
   {
     id: 2,
@@ -117,7 +117,7 @@ export const fm = [
     exp: "Operations Manager at Infinpro Consultants (Part time)",
     linkedin: "https://www.linkedin.com",
     email: "harishr@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fm/2.jpg",
   },
   {
     id: 3,
@@ -140,7 +140,7 @@ export const fm = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "harishs@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fm/3.jpg",
   },
   {
     id: 4,
@@ -157,7 +157,7 @@ export const fm = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "harjeethr@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fm/4.jpg",
   },
   {
     id: 5,
@@ -182,7 +182,7 @@ export const fm = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "naveenkumars@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fm/5.jpg",
   },
   {
     id: 6,
@@ -204,7 +204,7 @@ export const fm = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "rajmohanb@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fm/6.jpg",
   },
   {
     id: 7,
@@ -231,7 +231,7 @@ export const fm = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "rashanyasn@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fm/7.jpg",
   },
   {
     id: 8,
@@ -241,7 +241,7 @@ export const fm = [
       "MS Office Suite",
       "Tally Prime",
       "Power BI",
-      "Equity analysis – beginner",
+      "Equity analysis - beginner",
       "Digital marketing",
       "Customer relationship management",
     ],
@@ -257,7 +257,7 @@ export const fm = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "swethavenkatesh@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fm/8.jpg",
   },
 ];
 
@@ -284,7 +284,7 @@ export const mhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "banur@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/1.jpg",
   },
   {
     id: 2,
@@ -309,7 +309,7 @@ export const mhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "baraths@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/2.jpg",
   },
   {
     id: 3,
@@ -325,7 +325,7 @@ export const mhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "deepikat@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/3.jpg",
   },
   {
     id: 4,
@@ -355,7 +355,7 @@ export const mhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "fateenasabrins@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/4.jpg",
   },
   {
     id: 5,
@@ -386,7 +386,7 @@ export const mhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "gayathris@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/5.jpg",
   },
   {
     id: 6,
@@ -404,7 +404,7 @@ export const mhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "kandhagurum@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/6.jpg",
   },
   {
     id: 7,
@@ -424,7 +424,7 @@ export const mhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "mohammedabraarb@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/7.jpg",
   },
   {
     id: 8,
@@ -447,7 +447,7 @@ export const mhr = [
     exp: "Promo Writer - Tamil, Pocket FM (4 months)",
     linkedin: "https://www.linkedin.com",
     email: "praveent@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/8.jpg",
   },
   {
     id: 9,
@@ -462,7 +462,7 @@ export const mhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "ragavendran@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/9.jpg",
   },
   {
     id: 10,
@@ -480,7 +480,7 @@ export const mhr = [
     exp: "2 Months (Part time), Marketing Designer (Promotions)",
     linkedin: "https://www.linkedin.com",
     email: "sakthipriyac@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/10.jpg",
   },
   {
     id: 11,
@@ -496,7 +496,7 @@ export const mhr = [
     exp: "3- 4 months Social media intern, content writer",
     linkedin: "https://www.linkedin.com",
     email: "sakthivelpriyapm@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/11.jpg",
   },
   {
     id: 12,
@@ -510,7 +510,7 @@ export const mhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "vigneshkumares@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/mhr/12.jpg",
   },
 ];
 
@@ -536,7 +536,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "abarajithar@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/1.jpg",
   },
   {
     id: 2,
@@ -559,7 +559,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "anandjeyasuryas@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/2.jpg",
   },
   {
     id: 3,
@@ -582,7 +582,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "aswiniar@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/3.jpg",
   },
   {
     id: 4,
@@ -608,7 +608,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "dhanrajmurugan@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/4.jpg",
   },
   {
     id: 5,
@@ -616,9 +616,9 @@ export const fba = [
     qual: "B.SC COMPUTER SCIENCE",
     skills: ["MS Office", "Python", "SQL", "Power Bi", "Financial Modeling"],
     cert: [
-      "Problem Solving Using Computational Thinking – Coursera",
-      "Code Yourself! An introduction to Programming – Coursera",
-      "Python – Udemy",
+      "Problem Solving Using Computational Thinking - Coursera",
+      "Code Yourself! An introduction to Programming - Coursera",
+      "Python - Udemy",
       "Accounting Fundamentals",
       "Corporate Finance fundamentals",
       "Fundamentals of Data Analysis in excel",
@@ -627,7 +627,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "indhujav@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/5.jpg",
   },
   {
     id: 6,
@@ -643,7 +643,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "isaiaK@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/6.jpg",
   },
   {
     id: 7,
@@ -655,7 +655,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "johanaj@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/7.jpg",
   },
   {
     id: 8,
@@ -673,7 +673,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "manickakesavanm@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/8.jpg",
   },
   {
     id: 9,
@@ -690,9 +690,8 @@ export const fba = [
     exp: "Analyst (3 years)",
     linkedin: "https://www.linkedin.com",
     email: "nishorem@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/9.jpg",
   },
-  // Other entries would be formatted similarly.
   {
     id: 10,
     name: "Rajan Samuel D",
@@ -712,7 +711,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "rajansamueld@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/10.jpg",
   },
   {
     id: 11,
@@ -727,7 +726,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "sachinviswaakps@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/11.jpg",
   },
   {
     id: 12,
@@ -739,7 +738,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "saiprasadma@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/12.jpg",
   },
   {
     id: 13,
@@ -769,7 +768,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "steffysekshanap@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/13.jpg",
   },
   {
     id: 14,
@@ -790,7 +789,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "subaragavanm@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/14.jpg",
   },
   {
     id: 15,
@@ -810,7 +809,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "subbulakshmiat@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/15.jpg",
   },
   {
     id: 16,
@@ -833,7 +832,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "subikshamr@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/16.jpg",
   },
   {
     id: 17,
@@ -863,7 +862,7 @@ export const fba = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "suryaprakashct@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/17.jpg",
   },
   {
     id: 18,
@@ -889,7 +888,7 @@ export const fba = [
     exp: "Management Trainee (6 months)",
     linkedin: "https://www.linkedin.com",
     email: "swethag@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/18.jpg",
   },
   {
     id: 19,
@@ -911,7 +910,67 @@ export const fba = [
     exp: "Full Stack Software Developer, 1 year",
     linkedin: "https://www.linkedin.com",
     email: "vinobas@example.com",
-    img: "/imgs/students/1.png",
+    img: "/imgs/fba/19.jpg",
+  },
+];
+
+export const ohr = [
+  {
+    id: 1,
+    name: "Keshavarthana C",
+    qual: "B.TECH CHEMICAL ENGINEERING",
+    skills: ["Leadership", "Communication", "Problem solving", "Matlab"],
+    cert: [
+      "Advance excel",
+      "Corporate finance fundamental",
+      "British English certification",
+      "Soft skills development",
+      "Tally prime",
+    ],
+    intern: ["RKG GHEE (Operations intern)"],
+    exp: "Fresher",
+    linkedin: "https://www.linkedin.com",
+    email: "keshavarthanac@example.com",
+    img: "/imgs/1.jpg",
+  },
+  {
+    id: 2,
+    name: "Prabhakaran G",
+    qual: "B.PHARM",
+    skills: ["Excel Intermediate", "SAP", "SPSS"],
+    cert: [
+      "Demand Planning professional certificate (CSCMP)",
+      "Procurement professional certificate (CSCMP)",
+      "Excel Intermediate from Great Learning",
+      "Career essentials in Project management (LinkedIn & PMI)",
+    ],
+    intern: ["Reventec, US Healthcare (HR Intern)"],
+    exp: "IPQA Executive , 2yrs 5Months, Mylan laboratories Ltd, A Viatris company",
+    linkedin: "https://www.linkedin.com",
+    email: "prabhakarang@example.com",
+    img: "/imgs/1.jpg",
+  },
+  {
+    id: 3,
+    name: "Sharon A",
+    qual: "B.E CIVIL",
+    skills: [
+      "Interpersonal communication",
+      "Content writing",
+      "Python",
+      "AutoCAD",
+      "MS Excel",
+      "PowerPoint",
+    ],
+    cert: [
+      "Fundamentals of corporate finance by CFI",
+      "Python for data science, AI and development by IBM – Coursera",
+    ],
+    intern: ["Allcargo logistics (Operations intern)"],
+    exp: "Fresher",
+    linkedin: "https://www.linkedin.com",
+    email: "sharona@example.com",
+    img: "/imgs/1.jpg",
   },
 ];
 
@@ -939,7 +998,7 @@ export const fhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "amrithavarshiniv@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/fhr/1.jpg",
   },
   {
     id: 2,
@@ -968,7 +1027,7 @@ export const fhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "jessikar@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/fhr/2.jpg",
   },
   {
     id: 3,
@@ -990,7 +1049,7 @@ export const fhr = [
     exp: "Junior Consultant, Sri Raagas HR Consultancy, 3 Months",
     linkedin: "https://www.linkedin.com",
     email: "kaviyarasank@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/fhr/3.jpg",
   },
   {
     id: 4,
@@ -1009,7 +1068,7 @@ export const fhr = [
     exp: "Graduate Apprentice Trainee, 1 year",
     linkedin: "https://www.linkedin.com",
     email: "maatarinik@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/fhr/4.jpg",
   },
   {
     id: 5,
@@ -1037,7 +1096,7 @@ export const fhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "madhumathimv@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/fhr/5.jpg",
   },
   {
     id: 6,
@@ -1053,7 +1112,7 @@ export const fhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "menakav@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/fhr/6.jpg",
   },
   {
     id: 7,
@@ -1081,7 +1140,7 @@ export const fhr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "sharmilap@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/fhr/7.jpg",
   },
 ];
 
@@ -1102,6 +1161,6 @@ export const mop = [
     exp: "Engineer- manager, 7 years",
     linkedin: "https://www.linkedin.com",
     email: "rashmisivaramakrishnan@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/mo/1.jpg",
   },
 ];

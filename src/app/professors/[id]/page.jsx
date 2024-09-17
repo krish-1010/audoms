@@ -1,7 +1,10 @@
+// "use client";
+
 import React from "react";
 import Image from "next/image";
 import bg from "/public/imgs/backgroundImage.png";
 import { profdata } from "../../data/proffesors";
+import Profile from "../../components/Profile";
 
 const page = ({ params }) => {
   const id = params.id;
@@ -15,8 +18,8 @@ const page = ({ params }) => {
       <div className="absolute min-h-screen w-full">
         <Image src={bg} fill alt="background" />
       </div>
-      <div className="relative">
-        <div>{professor.name}</div>
+      <div className="relative h-screen top-1/2">
+        <Profile professor={professor} />
       </div>
     </div>
   );

@@ -1,10 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import StudentCircle from "./StudentCircle";
+import { ResponsiveHoneycomb, Hexagon } from "react-honeycomb";
+
 
 const Fm = ({ spec, students }) => {
   return (
-    <div className="relative grid grid-cols-3 ml-auto mr-auto min-h-screen w-[1200px] ">
+    <div className="relative grid grid-cols-5 ml-auto mr-auto min-h-screen w-[1200px] ">
+      {/* <div className="relative grid grid-cols-3 ml-auto mr-auto min-h-screen w-[1200px] "> */}
       {/* <!-- Column 1 --> */}
       <div class="flex flex-col gap-24 w-full h-full  items-center justify-center">
         {/* <div class="bg-blue-500 text-white p-4">Item 1A</div> */}

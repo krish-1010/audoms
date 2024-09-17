@@ -13,10 +13,13 @@ import Fhr from "../../components/Fhr";
 import Fba from "../../components/Fba";
 import Mhr from "../../components/Mhr";
 import Fm from "../../components/Fm";
+import Test from "../../components/Test";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 // import Aparjitha from "/public/imgs/Aparajitha.jpg";
 
-import { bao, fm, mhr, fba, fhr, mop } from "../../data/studentsdata";
+import { bao, fm, mhr, fba, fhr, mop, ohr } from "../../data/studentsdata";
 
 const Page = ({ params }) => {
   const spec = params.spec;
@@ -25,12 +28,26 @@ const Page = ({ params }) => {
 
   const specializationMapping = {
     bao, // Business Analytics and Operations
+    ohr, // Operations and Human Resource
     fm, // Finance and Marketing
     mhr, // Marketing and HR (assuming this is the correct abbreviation)
     fba, // Finance and Business Analytics
     fhr, // Finance and Human Resource
     mop, // Operations and Human Resource (assuming this is the correct abbreviation)
   };
+
+  const fullSpecNames = {
+    bao: "Business Analytics and Operations",
+    ohr: "Operations & Human Resource",
+    fm: "Finance & Marketing",
+    mhr: "Marketing & Human Resource",
+    fba: "Finance & Business Analytics",
+    fhr: "Finance & Human Resource",
+    mop: "Marketing & Operations",
+    tm: "Tourism Management",
+  };
+
+  const fullHeading = fullSpecNames[spec];
 
   // const tm = [
   //   {
@@ -61,17 +78,69 @@ const Page = ({ params }) => {
 
   const renderGrid = () => {
     if (students.length === 1) {
-      return <Mop spec={spec} students={students} />;
+      // return <Mop spec={spec} students={students} />;
+      return (
+        <Test
+          size={"max-w-[550px]"}
+          imgsize={120}
+          spec={spec}
+          students={students}
+        />
+      );
     } else if (students.length == 7) {
       console.log("7 students");
-      return <Fhr spec={spec} students={students} />;
+      return (
+        <Test
+          size={"max-w-[760px]"}
+          imgsize={90}
+          spec={spec}
+          students={students}
+        />
+      );
     } else if (students.length == 19) {
-      return <Fba spec={spec} students={students} />;
+      //fba
+      return (
+        <Test
+          size={"max-w-[1200px]"}
+          imgsize={80}
+          spec={spec}
+          students={students}
+        />
+      );
     } else if (students.length == 12) {
-      return <Mhr spec={spec} students={students} />;
+      // mhr
+      return (
+        <Test
+          size={"max-w-[1200px]"}
+          imgsize={80}
+          spec={spec}
+          students={students}
+        />
+      );
     } else if (students.length == 8) {
-      return <Fm spec={spec} students={students} />;
-    }
+      // fm
+      return (
+        <Test
+          size={"max-w-[720px]"}
+          imgsize={80}
+          spec={spec}
+          students={students}
+        />
+      );
+    } else if (students.length == 3) {
+      // bao
+      return (
+        <Test
+          size={"max-w-[720px]"}
+          imgsize={100}
+          spec={spec}
+          students={students}
+        />
+      );
+    } else <div className="text-4xl font-bold">Coming Soon</div>;
+    // } else if (students.length == 8) {
+    //   return <Fm spec={spec} students={students} />;
+    // }
 
     // Add more conditions as necessary for other specializations
   };
@@ -97,6 +166,10 @@ const Page = ({ params }) => {
     };
   }, []);
 
+  useGSAP(() => {
+    
+  });
+
   const students = specializationMapping[spec];
 
   if (!students) {
@@ -121,7 +194,15 @@ const Page = ({ params }) => {
         <div className="absolute w-full h-full bg-background-pattern bg-repeat bg-center bg-cover z-[-1]">
           {/* No content inside this div, it's just for the background */}
         </div>
-        <div className="relative w-full h-screen">{renderGrid()}</div>
+
+        {spec ? <h1>{fullHeading}</h1> : <h1>Loading...</h1>}
+
+        <div className="w-full h-screen ">
+          {renderGrid()}
+          {/* <div className="max-w-[1200px]  min-w-[100px] border border-transparent mr-auto ml-auto">
+            
+          </div> */}
+        </div>
       </div>
     );
   }

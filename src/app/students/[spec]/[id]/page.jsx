@@ -3,43 +3,36 @@
 import React from "react";
 import Image from "next/image";
 import bg from "/public/imgs/backgroundImage.png";
+import { ResponsiveHoneycomb, Hexagon } from 'react-honeycomb';
 // import { profdata } from "../../../data/proffesors";
+import { bao, fm, mhr, fba, fhr, mop, ohr } from "../../../data/studentsdata";
+
 
 const page = ({ params }) => {
-  const id = parseInt(params.id);
 
-  console.log(id);
+  const specializationMapping = {
+    bao, // Business Analytics and Operations
+    ohr, // Operations and Human Resource
+    fm, // Finance and Marketing
+    mhr, // Marketing and HR (assuming this is the correct abbreviation)
+    fba, // Finance and Business Analytics
+    fhr, // Finance and Human Resource
+    mop, // Operations and Human Resource (assuming this is the correct abbreviation)
+  };
 
-  const tm = [
-    {
-      id: 1,
-      name: "John Doe",
-      img: "/public/imgs/johndoe.png",
-      qual: "B.E. Mechanical",
-      skills: "Python, Java, C++",
-      cert: "Data Science",
-      intern: "Google",
-      exp: "2 years",
-      linkedin: "https://www.linkedin.com",
-      email: "example@mail.com",
-    },
-    {
-      id: 2,
-      name: "John Doe",
-      img: "/public/imgs/johndoe.png",
-      qual: "B.E. Mechanical",
-      skills: "Python, Java, C++",
-      cert: "Data Science",
-      intern: "Google",
-      exp: "2 years",
-      linkedin: "https://www.linkedin.com",
-      email: "example@mail.com",
-    },
-  ];
+  const sid = parseInt(params.id);
 
-  const student = tm.find((stud) => stud.id === id);
-  console.log(id);
-  console.log("heloon");
+  const specialization = params.spec;
+
+
+
+  const students = specializationMapping[specialization];
+
+  const student = students.find((student) => student.id === sid);
+
+  
+
+  
 
   if (!student) return <div>student not found</div>;
 
