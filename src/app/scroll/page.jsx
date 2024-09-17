@@ -152,7 +152,7 @@ export default function Scroll() {
             </svg>
             <section
               ref={section1Ref}
-              className="section pin sec1 w-[100vw] py-[20vw] px-[10vw]"
+              className="section mt-10 pin sec1 w-[100vw] py-[20vw] px-[10vw]"
             >
               <span></span>
               <h1 className=" text-7xl m-0 pb-2 text-[#00DDFF]">Q1</h1>
@@ -175,7 +175,7 @@ export default function Scroll() {
             {/*  */}
             <section
               ref={section2Ref}
-              className="sec2 section w-[100vw]  py-[20vw] px-[10vw]"
+              className="sec2  mt-10 section w-[100vw]  py-[20vw] px-[10vw]"
             >
               {/* <span className="anim">Advanced2</span> */}
               <h1 className="anim text-7xl m-0 pb-2 text-[#00DDFF]">Q2</h1>
@@ -198,7 +198,7 @@ export default function Scroll() {
             {/*  */}
             <section
               ref={section3Ref}
-              className="sec3 section w-[100vw] py-[20vw] px-[10vw]"
+              className="sec3 section  mt-10 w-[100vw] py-[20vw] px-[10vw]"
             >
               {/* <span className="anim">Advanced3</span> */}
               <h1 className="anim text-7xl m-0 pb-2 text-[#00DDFF]">Q3</h1>

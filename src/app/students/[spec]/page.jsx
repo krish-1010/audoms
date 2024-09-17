@@ -4,15 +4,12 @@ import React from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import bg from "/public/imgs/backgroundImage.png";
-import Circle from "../components/Circle";
+import Circle from "../../components/Circle";
 import Link from "next/link";
-import { DM_Sans } from "next/font/google";
-const dmsans = DM_Sans({
-  subsets: ["latin"],
-  // weight: [400, 700],
-});
 
-const Page = () => {
+
+
+const Page = ({spec}) => {
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
     // Assuming your previous animations are managed here
@@ -23,7 +20,7 @@ const Page = () => {
     };
   }, []);
   return (
-    <div className={`${dmsans.className} font-bold tracking-tight`}>
+    <div className={` font-bold tracking-tight`}>
       <div className="absolute min-h-screen w-full">
         <Image src={bg} fill alt="background" />
       </div>

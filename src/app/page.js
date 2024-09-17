@@ -36,12 +36,18 @@ export default function Home() {
   const textRef = useRef(null);
 
   useEffect(() => {
+
+
+    document.body.classList.add("overflow-hidden");
     // Assuming your previous animations are managed here
     // Simulate timing for when the logo should move up and text should appear
 
     setTimeout(() => {
       setTextVisible(true); // Show the text
     }, 500); // Delay for text appearance after the logo moves
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
   }, []);
 
   useEffect(() => {
