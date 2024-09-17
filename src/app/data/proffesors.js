@@ -6,7 +6,7 @@ export const profdata = [
     qualification: "B.Tech., M.B.A., Ph.D.",
     domain:
       "Information Systems, Woman Studies, Energy Management, Quality Management",
-    img: "/imgs/professor1.png",
+    img: "/imgs/professor1.jpg",
   },
   {
     id: "2",

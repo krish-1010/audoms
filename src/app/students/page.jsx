@@ -60,17 +60,18 @@ const Page = () => {
       text: "Finance, Marketing",
       spec: "fm",
     },
+
     {
       id: 7,
-      icon: <MdTour size={70} />,
-      text: "Tourism Management",
-      spec: "tm",
-    },
-    {
-      id: 8,
       icon: <GrWorkshop size={70} />,
       text: "Operations & Marketing",
       spec: "om",
+    },
+    {
+      id: 8,
+      icon: <MdTour size={70} />,
+      text: "Tourism Management",
+      spec: "tm",
     },
   ];
 

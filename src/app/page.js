@@ -36,8 +36,6 @@ export default function Home() {
   const textRef = useRef(null);
 
   useEffect(() => {
-
-
     document.body.classList.add("overflow-hidden");
     // Assuming your previous animations are managed here
     // Simulate timing for when the logo should move up and text should appear
@@ -196,7 +194,7 @@ export default function Home() {
             }`}
           >
             <p className="text-center text-4xl tracking-wider font-bold">
-              Placement Brouchure <br /> 2024
+              DoMs Nexus Webfolio <br /> 2024
             </p>
             <p className="text-center text-2xl font-bold">Bactch 2024 - 25</p>
           </div>

@@ -7,6 +7,7 @@ import bg from "/public/imgs/backgroundImage.png";
 import Circle from "../components/Circle";
 import Link from "next/link";
 import { DM_Sans } from "next/font/google";
+import StudentCircle from "../components/StudentCircle";
 const dmsans = DM_Sans({
   subsets: ["latin"],
   // weight: [400, 700],

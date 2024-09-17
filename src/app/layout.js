@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Script
         src="https://widget.cxgenie.ai/widget.js"
-        data-aid="22954b1e-dbfd-4a00-862e-ab020c3976bc"
+        data-aid="1a281559-dd6b-4197-9ade-231289a0b4c1"
         data-lang="en"
       />
       <body className={`${dmsans.className} antialiased`}>

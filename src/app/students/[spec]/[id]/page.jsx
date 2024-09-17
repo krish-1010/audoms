@@ -1,10 +1,14 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import bg from "/public/imgs/backgroundImage.png";
 // import { profdata } from "../../../data/proffesors";
 
 const page = ({ params }) => {
-  const id = params.id;
+  const id = parseInt(params.id);
+
+  console.log(id);
 
   const tm = [
     {
@@ -34,6 +38,8 @@ const page = ({ params }) => {
   ];
 
   const student = tm.find((stud) => stud.id === id);
+  console.log(id);
+  console.log("heloon");
 
   if (!student) return <div>student not found</div>;
 
