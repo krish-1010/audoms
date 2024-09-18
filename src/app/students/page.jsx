@@ -16,8 +16,17 @@ import { SiGooglemarketingplatform } from "react-icons/si";
 import { MdTour } from "react-icons/md";
 import { GrWorkshop } from "react-icons/gr";
 import StudentCard from "../components/StudentCard";
+import Circle from "../components/Circle";
 
 const Page = () => {
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden");
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
+
   const bgRef = useRef(null);
   const t1Ref = useRef(null);
   const t2Ref = useRef(null);
@@ -123,6 +132,13 @@ const Page = () => {
       <div className="absolute min-h-screen w-full">
         <Image ref={bgRef} src={bg} fill alt="background" />
       </div>
+
+      <div className="absolute top-[-10px] right-[-10px]">
+        <Link href="/doms">
+          <Circle text="DoMs"></Circle>
+        </Link>
+      </div>
+
       <h1
         className={`absolute text-5xl font-semibold ${
           visible ? "block" : "hidden"
