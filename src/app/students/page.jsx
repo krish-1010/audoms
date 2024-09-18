@@ -119,7 +119,7 @@ const Page = () => {
   });
 
   return (
-    <div className="h-full flex w-full items-center justify-center">
+    <div className="min-h-screen flex w-full items-center justify-center">
       <div className="absolute min-h-screen w-full">
         <Image ref={bgRef} src={bg} fill alt="background" />
       </div>

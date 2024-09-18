@@ -10,7 +10,7 @@ import { useGSAP } from "@gsap/react";
 
 // import Aparjitha from "/public/imgs/Aparajitha.jpg";
 
-import { bao, fm, mhr, fba, fhr, mop, ohr } from "../../data/studentsdata";
+import { bao, fm, mhr, fba, fhr, mop, ohr, tm } from "../../data/studentsdata";
 
 const Page = ({ params }) => {
   const headingRef = useRef(null);
@@ -30,6 +30,7 @@ const Page = ({ params }) => {
     fba, // Finance and Business Analytics
     fhr, // Finance and Human Resource
     mop, // Operations and Human Resource (assuming this is the correct abbreviation)
+    tm, // Tourism Management
   };
 
   const fullSpecNames = {
@@ -102,6 +103,16 @@ const Page = ({ params }) => {
         <Test
           size={"max-w-[720px]"}
           imgsize={100}
+          spec={spec}
+          students={students}
+        />
+      );
+    } else if (students.length == 22) {
+      // tm
+      return (
+        <Test
+          size={"max-w-[1200px]"}
+          imgsize={70}
           spec={spec}
           students={students}
         />

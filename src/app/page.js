@@ -196,7 +196,7 @@ export default function Home() {
             <p className="text-center text-4xl tracking-wider font-bold">
               DoMs Nexus Webfolio <br /> 2024
             </p>
-            <p className="text-center text-2xl font-bold">Bactch 2024 - 25</p>
+            <p className="text-center text-2xl font-bold">Batch 2024 - 25</p>
           </div>
         </div>
       </main>

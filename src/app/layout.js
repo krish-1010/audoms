@@ -29,7 +29,16 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       > */}
         <Analytics />
-        {children}
+
+        {/* Responsive Message */}
+        <div className="md:hidden flex items-center justify-center h-screen text-center p-4 bg-black shadow rounded-lg absolute top-0 left-0 right-0">
+          <p className="text-2xl font-semibold">
+            Please use a desktop to view this site.
+          </p>
+        </div>
+
+        {/* Main content visible only on larger screens */}
+        <div className="hidden md:block">{children}</div>
       </body>
     </html>
   );

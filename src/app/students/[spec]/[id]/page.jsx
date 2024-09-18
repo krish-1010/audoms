@@ -6,7 +6,16 @@ import bg from "/public/imgs/backgroundImage.png";
 // import { ResponsiveHoneycomb, Hexagon } from "react-honeycomb";
 import StudentProfile from "@/app/components/StudentProfile";
 // import { profdata } from "../../../data/proffesors";
-import { bao, fm, mhr, fba, fhr, mop, ohr } from "../../../data/studentsdata";
+import {
+  bao,
+  fm,
+  mhr,
+  fba,
+  fhr,
+  mop,
+  ohr,
+  tm,
+} from "../../../data/studentsdata";
 
 const page = ({ params }) => {
   const specializationMapping = {
@@ -17,6 +26,7 @@ const page = ({ params }) => {
     fba, // Finance and Business Analytics
     fhr, // Finance and Human Resource
     mop, // Operations and Human Resource (assuming this is the correct abbreviation)
+    tm, // Tourism Management
   };
 
   const sid = parseInt(params.id);
@@ -24,6 +34,8 @@ const page = ({ params }) => {
   const specialization = params.spec;
 
   const students = specializationMapping[specialization];
+
+  console.log(sid, specialization);
 
   const student = students.find((student) => student.id === sid);
 
