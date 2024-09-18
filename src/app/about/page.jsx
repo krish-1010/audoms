@@ -1,14 +1,32 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 // import { useState } from "react";
 import bg from "/public/imgs/backgroundImage.png";
 import au from "/public/imgs/auimg.png";
+import Circle from "../components/Circle";
+import Link from "next/link";
 
-const page = () => {
+const Page = () => {
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden");
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
+
   return (
     <div>
-      <div className="absolute min-h-screen w-full">
+      <div className="absolute min-h-screen w-full overflow-hidden">
         <Image src={bg} fill alt="background" />
+      </div>
+
+      <div className="absolute top-[-10px] right-[-10px]">
+        <Link href="/doms">
+          <Circle text="DoMs"></Circle>
+        </Link>
       </div>
       <div className="flex min-h-screen items-center">
         <div className="relative w-[75%] h-[500px] mx-auto grid grid-cols-10">
@@ -33,4 +51,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

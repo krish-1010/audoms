@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import { useRef, useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -8,6 +7,8 @@ import Image from "next/image";
 import bg from "/public/imgs/backgroundImage.png";
 import { Inter } from "next/font/google";
 import styled from "styled-components";
+import Circle from "../components/Circle";
+import Link from "next/link";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -219,6 +220,11 @@ export default function Scroll() {
               </div>
             </section>
           </div>
+        </div>
+        <div className="absolute bottom-[-10px] right-[50%]">
+          <Link href="/students">
+            <Circle text="Student"></Circle>
+          </Link>
         </div>
         {/* <section className="bg-blue-300 h-[100vh]"></section> */}
       </div>

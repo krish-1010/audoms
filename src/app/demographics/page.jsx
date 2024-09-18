@@ -37,7 +37,7 @@ const Page = () => {
       onComplete: () => {
         setTimeout(() => {
           router.push("/students");
-        }, 10000);
+        }, 15000);
       },
     })
       .to(divFRef.current, { duration: 3, opacity: 1, ease: "power2.inOut" })
