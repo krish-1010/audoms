@@ -13,6 +13,11 @@ module.exports = {
       },
       backgroundImage: {
         "background-pattern": "url('/imgs/backgroundImage.png')",
+        "radial-orange-transparent":
+          "radial-gradient(circle, #ff8811, transparent 50%)",
+      },
+      backgroundColor: {
+        dark: "#131217",
       },
     },
   },

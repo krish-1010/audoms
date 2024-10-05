@@ -133,9 +133,9 @@ const Page = () => {
         <Image ref={bgRef} src={bg} fill alt="background" />
       </div>
 
-      <div className="absolute top-[-10px] right-[-10px]">
-        <Link href="/doms">
-          <Circle text="DoMs"></Circle>
+      <div className="absolute bottom-[-10px] left-[-10px]">
+        <Link href="/professors">
+          <Circle text="Faculty"></Circle>
         </Link>
       </div>
 

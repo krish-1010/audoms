@@ -21,6 +21,7 @@ export default function Scroll() {
   const maskRef = useRef(null);
   const wrapperRef = useRef(null);
   const containerRef = useRef(null);
+  const imgRef = useRef(null);
   // const sectionRef = useRef([]);
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
@@ -28,9 +29,32 @@ export default function Scroll() {
   const svgRef = useRef(null);
 
   useGSAP(() => {
+    const img = imgRef.current;
+
+    // gsap.from(img, { scale: 3, rotate: -45, duration: 1 });
+
+    // gsap.to(img, { scale: 2, rotate: 0, duration: 1 });
+
     const container = containerRef.current;
     const sections = gsap.utils.toArray(container.querySelectorAll("section"));
     const mask = maskRef.current;
+    const wrapper = wrapperRef.current;
+
+    const tl = gsap.timeline();
+
+    tl.to(img, {
+      scale: 2,
+      rotate: 45,
+      duration: 2,
+      ease: "power2.inOut",
+    }).from(wrapper, {
+      opacity: 0,
+      duration: 2,
+      ease: "power2.inOut",
+    });
+    // Fade out t1 and rotate background to original after delay
+    // .to(wrapper, { opacity: 0, duration: 1 }, ">1")
+    // .set(wrapper, { css: { zIndex: -10 } });
 
     let scrollTween = gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
@@ -95,7 +119,7 @@ export default function Scroll() {
   return (
     <StyledWrapper>
       <div className={`min-h-screen relative ${inter.className}`}>
-        <div className="fixed top-0 left-0 w-full h-screen -z-10">
+        <div ref={imgRef} className="fixed top-0 left-0 w-full h-screen -z-10">
           <Image
             src={bg}
             layout="fill"
@@ -221,7 +245,7 @@ export default function Scroll() {
             </section>
           </div>
         </div>
-        <div className="absolute bottom-[-10px] right-[50%]">
+        <div className="fixed bottom-[-70px] right-[50%]">
           <Link href="/students">
             <Circle text="Student"></Circle>
           </Link>

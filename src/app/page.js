@@ -64,6 +64,10 @@ export default function Home() {
       },
     });
 
+    tl.to(bgRef.current, {
+      scale: 2,
+    });
+
     // First part: Flip (invert) the image
     tl.to(bgRef.current, {
       rotationX: 180,
@@ -168,7 +172,7 @@ export default function Home() {
         <div className="min-h-screen min-w-full overflow-hidden relative">
           {/* Wrapper div to apply transformation, referenced by bgRef */}
           <div ref={bgRef} className="w-full h-full absolute">
-            <Image src={bg} fill alt="Background" layout="fill" />
+            <Image src={bg} className="" fill alt="Background" layout="fill" />
           </div>
           {/* <div>
             <Image src={mainlogo} alt="Main Logo" width={200} height={200} />

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import bg from "/public/imgs/backgroundImage.png";
 // import { ResponsiveHoneycomb, Hexagon } from "react-honeycomb";
@@ -16,8 +16,10 @@ import {
   ohr,
   tm,
 } from "../../../data/studentsdata";
+import HoneycombBackground from "@/app/components/HoneycombBackground";
+import CheckeredBackground from "@/app/components/CheckeredBackground";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const specializationMapping = {
     bao, // Business Analytics and Operations
     ohr, // Operations and Human Resource
@@ -28,6 +30,14 @@ const page = ({ params }) => {
     mop, // Operations and Human Resource (assuming this is the correct abbreviation)
     tm, // Tourism Management
   };
+
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden");
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
 
   const sid = parseInt(params.id);
 
@@ -46,11 +56,12 @@ const page = ({ params }) => {
       <div className="absolute min-h-screen w-full">
         <Image src={bg} fill alt="background" />
       </div>
-      <div className="relative h-screen top-1/2">
+      <CheckeredBackground />
+      <div className="relative z-50 h-screen top-1/2">
         <StudentProfile student={student} />
       </div>
     </div>
   );
 };
 
-export default page;
+export default Page;

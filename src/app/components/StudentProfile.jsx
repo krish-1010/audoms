@@ -24,9 +24,10 @@ const StudentProfile = ({ student }) => {
         <div className="w-[380px] relative  h-[400px]">
           <Image
             src={student.img}
-            className="rounded-md"
+            className="rounded-md "
             alt="img"
-            fill
+            height={400}
+            width={400}
           ></Image>
         </div>
         <div className="w-[60%] flex flex-col gap-4 justify-center items-start">

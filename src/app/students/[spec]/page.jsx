@@ -11,8 +11,19 @@ import { useGSAP } from "@gsap/react";
 // import Aparjitha from "/public/imgs/Aparajitha.jpg";
 
 import { bao, fm, mhr, fba, fhr, mop, ohr, tm } from "../../data/studentsdata";
+import HoneycombBackground from "@/app/components/HoneycombBackground";
 
 const Page = ({ params }) => {
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden");
+    // Assuming your previous animations are managed here
+    // Simulate timing for when the logo should move up and text should appear
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
+
   const headingRef = useRef(null);
   const gridRef = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -200,6 +211,7 @@ const Page = ({ params }) => {
 
     return (
       <div className={` font-bold tracking-tight`}>
+        <HoneycombBackground />
         <div className="absolute w-full h-full bg-background-pattern bg-repeat bg-center bg-cover z-[-1]">
           {/* No content inside this div, it's just for the background */}
         </div>

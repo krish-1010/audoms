@@ -931,7 +931,7 @@ export const ohr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "keshavarthanac@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/ohr/1.jpg",
   },
   {
     id: 2,
@@ -948,7 +948,7 @@ export const ohr = [
     exp: "IPQA Executive , 2yrs 5Months, Mylan laboratories Ltd, A Viatris company",
     linkedin: "https://www.linkedin.com",
     email: "prabhakarang@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/ohr/2.jpg",
   },
   {
     id: 3,
@@ -970,7 +970,7 @@ export const ohr = [
     exp: "Fresher",
     linkedin: "https://www.linkedin.com",
     email: "sharona@example.com",
-    img: "/imgs/1.jpg",
+    img: "/imgs/ohr/3.jpg",
   },
 ];
 
@@ -1646,5 +1646,5 @@ export const tm = [
     email: "s.farhanaakhan26@gmail.com",
     linkedin: "https://www.linkedin.com/in/farhanaa-khan-6ba5162a2/",
     img: "/imgs/tm/22.jpg",
-  },  
+  },
 ];

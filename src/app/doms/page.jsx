@@ -8,7 +8,22 @@ import doms from "/public/imgs/doms.png";
 import Circle from "../components/Circle";
 import Link from "next/link";
 
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
 const Page = () => {
+  const imgRef = useRef(null);
+
+  useGSAP(() => {
+    const img = imgRef.current;
+
+    const tl = gsap.timeline();
+
+    tl.to(img, { scale: 3, rotate: -45, duration: 1 });
+    // .to(imgRef, { y: 50, duration: 1 })
+    // .from(imgRef, { opacity: 0, duration: 1 });
+  }, []);
+
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
 
@@ -19,7 +34,7 @@ const Page = () => {
 
   return (
     <div>
-      <div className="absolute min-h-screen w-full">
+      <div ref={imgRef} className="absolute min-h-screen w-full">
         <Image src={bg} fill alt="background" />
       </div>
 
