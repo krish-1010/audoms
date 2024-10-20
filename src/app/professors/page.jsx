@@ -9,6 +9,8 @@ import { profdata } from "../data/proffesors";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
+import CircleButton from "../components/CircleButton";
+import HomeButton from "../components/HomeButton";
 
 const Page = () => {
   const bgRef = useRef(null);
@@ -17,6 +19,7 @@ const Page = () => {
   const contentRef = useRef(null);
 
   const [visible, setvisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
@@ -25,9 +28,30 @@ const Page = () => {
       setvisible(true);
     }, 500);
 
+    setTimeout(() => {
+      document.body.classList.remove("overflow-hidden");
+      document.body.classList.add(
+        "bg-background-pattern",
+        "bg-repeat",
+        "bg-center",
+        "bg-cover",
+        "bg-background-pattern",
+        "z-[-1]"
+      );
+      setIsVisible(true);
+    }, 10000);
+
     // Clean up: Remove the class when the component unmounts
     return () => {
       document.body.classList.remove("overflow-hidden");
+      document.body.classList.remove(
+        "bg-background-pattern",
+        "bg-repeat",
+        "bg-center",
+        "bg-cover",
+        "bg-background-pattern",
+        "z-[-1]"
+      );
     };
   }, []);
 
@@ -42,6 +66,7 @@ const Page = () => {
         document.body.classList.remove("overflow-hidden");
       },
     });
+    gsap.set(t1, { top: "50%", left: "50%" });
 
     tl.to(bgi, { scale: 3.8, rotate: 45, duration: 2, ease: "power2.inOut" })
 
@@ -63,7 +88,12 @@ const Page = () => {
         "<"
       )
       // Fade out t2
-      .to(t2, { opacity: 1, y: -420, duration: 1 }, ">1")
+      .fromTo(
+        t2,
+        { top: "50%", left: "50%" },
+        { opacity: 1, duration: 1, top: 70 },
+        ">1"
+      )
 
       // Final scale down of background and fade in content
       .to(bgi, { scale: 1, duration: 2, ease: "power2.inOut" })
@@ -72,31 +102,46 @@ const Page = () => {
   });
 
   return (
-    <div>
-      <div ref={bgRef} className="w-full h-full absolute">
-        <Image src={bg} fill alt="Background" layout="fill" />
+    <div className="">
+      <div
+        ref={bgRef}
+        className="absolute w-full h-full bg-background-pattern bg-repeat bg-center bg-cover z-[-1]"
+      >
+        {/* Background  */}
       </div>
-      <div className="relative flex justify-center ">
-        <h1
-          className={`top-1/2 absolute text-center text-5xl font-bold ${
-            visible ? "block" : "hidden"
-          }`}
-          ref={t1Ref}
-        >
-          Meet the Minds Shaping Tomorrow <br /> Visionaries of the Helm
-        </h1>
-        <h1
-          className={`top-1/2 text-center absolute text-5xl font-bold ${
-            visible ? "block" : "hidden"
-          }`}
-          ref={t2Ref}
-        >
-          The Exemplary Educators : <br />
-          Our Distinguished Faculty
-        </h1>
+
+      <div
+        className={`absolute top-[-25px] left-[-25px] ${
+          isVisible ? "block" : "hidden"
+        }`}
+      >
+        <Link href="/demographics">
+          <CircleButton text="Demographics" />
+        </Link>
+      </div>
+
+      <h1
+        className={` absolute -translate-x-1/2 text-center text-5xl font-bold ${
+          visible ? "block" : "hidden"
+        }`}
+        ref={t1Ref}
+      >
+        Meet the Minds Shaping Tomorrow <br /> Visionaries of the Helm
+      </h1>
+      <h1
+        className={`text-center min-w-[700px] md:text-4xl -translate-x-1/2 absolute xl:text-5xl font-bold ${
+          visible ? "flex" : "hidden"
+        } items-center gap-4`}
+        ref={t2Ref}
+      >
+        <HomeButton />
+        The Exemplary Educators : <br />
+        Our Distinguished Faculty
+      </h1>
+      <div className=" flex justify-center ">
         <div
           ref={contentRef}
-          className={`grid grid-cols-1 max-w-[2600px] mt-[14rem] sm:grid-cols-2 md:grid-cols-3 gap-8 ${
+          className={`grid grid-cols-1 max-w-[2600px] mt-[14rem] sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-8 ${
             visible ? "block" : "hidden"
           }`}
         >

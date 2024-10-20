@@ -11,8 +11,8 @@ const Profile = ({ professor }) => {
   //   imulate timing for when the logo should move up and text should appear
 
   return (
-    <div className="w-full  h-full flex gap-8 justify-center items-center ">
-      <div className="flex flex-row gap-16 2xl:w-[1200px] xl:w-[720px] pt-4 pb-4 ">
+    <div className="w-full h-full flex gap-8 justify-center items-center ">
+      <div className="flex flex-row gap-16 2xl:w-[1200px] w-[1200px] pt-4 pb-4 ">
         <div className="w-[380px] relative  h-[400px]">
           <Image
             src={professor.img}

@@ -3,7 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-
+import Link from "next/link";
+import CircleButton from "@/app/components/CircleButton";
 import Test from "../../components/Test";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -12,6 +13,8 @@ import { useGSAP } from "@gsap/react";
 
 import { bao, fm, mhr, fba, fhr, mop, ohr, tm } from "../../data/studentsdata";
 import HoneycombBackground from "@/app/components/HoneycombBackground";
+import BackButton from "@/app/components/BackButton";
+import HomeButton from "@/app/components/HomeButton";
 
 const Page = ({ params }) => {
   useEffect(() => {
@@ -211,20 +214,35 @@ const Page = ({ params }) => {
 
     return (
       <div className={` font-bold tracking-tight`}>
+        <div className="absolute z-50 top-[10%] left-[70px] cursor-pointer">
+          <BackButton />
+        </div>
+
+        <div className="absolute bottom-[-25px] left-[-25px]">
+          <Link href="/professors">
+            <CircleButton text="Faculty"></CircleButton>
+          </Link>
+        </div>
         <HoneycombBackground />
         <div className="absolute w-full h-full bg-background-pattern bg-repeat bg-center bg-cover z-[-1]">
           {/* No content inside this div, it's just for the background */}
         </div>
 
         {spec ? (
-          <h1
-            className={`${
-              textVisible ? "block" : "hidden"
-            }  text-4xl font-bold text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
-            ref={headingRef}
-          >
-            {fullHeading}
-          </h1>
+          <>
+            {/* <div className="absolute top-[10%] left-[30%] transform -translate-x-[30%] ">
+              <HomeButton />
+            </div> */}
+            <h1
+              className={`${
+                textVisible ? "flex" : "hidden"
+              }  text-4xl gap-4 items-center font-bold text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
+              ref={headingRef}
+            >
+              <HomeButton />
+              {fullHeading}
+            </h1>
+          </>
         ) : (
           <h1>Loading...</h1>
         )}

@@ -227,7 +227,7 @@ const CheckeredBackground = () => {
       {/* Square Pattern */}
       <div
         ref={patternRef}
-        className="absolute inset-0 z-1 pointer-events-none"
+        className="absolute inset-0 z-10 pointer-events-none"
       ></div>
     </div>
   );

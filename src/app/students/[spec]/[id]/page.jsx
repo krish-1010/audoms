@@ -6,6 +6,8 @@ import bg from "/public/imgs/backgroundImage.png";
 // import { ResponsiveHoneycomb, Hexagon } from "react-honeycomb";
 import StudentProfile from "@/app/components/StudentProfile";
 // import { profdata } from "../../../data/proffesors";
+import Link from "next/link";
+import CircleButton from "@/app/components/CircleButton";
 import {
   bao,
   fm,
@@ -18,6 +20,8 @@ import {
 } from "../../../data/studentsdata";
 import HoneycombBackground from "@/app/components/HoneycombBackground";
 import CheckeredBackground from "@/app/components/CheckeredBackground";
+import HomeButton from "@/app/components/HomeButton";
+import BackButton from "@/app/components/BackButton";
 
 const Page = ({ params }) => {
   const specializationMapping = {
@@ -56,8 +60,22 @@ const Page = ({ params }) => {
       <div className="absolute min-h-screen w-full">
         <Image src={bg} fill alt="background" />
       </div>
+
+      <div className="absolute z-50 top-[10%] left-[70px] cursor-pointer">
+        <BackButton />
+      </div>
+
+      <div className="absolute z-50 top-[10%] left-[50%] transform translate-x-1/2">
+        <HomeButton />
+      </div>
+
       <CheckeredBackground />
-      <div className="relative z-50 h-screen top-1/2">
+      <div className="absolute z-50 bottom-[-20px] left-[-20px]">
+        <Link href="/professors">
+          <CircleButton text="Faculty"></CircleButton>
+        </Link>
+      </div>
+      <div className="relative z-40 h-screen top-1/2">
         <StudentProfile student={student} />
       </div>
     </div>

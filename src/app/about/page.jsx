@@ -5,8 +5,10 @@ import Image from "next/image";
 // import { useState } from "react";
 import bg from "/public/imgs/backgroundImage.png";
 import au from "/public/imgs/auimg.png";
-import Circle from "../components/Circle";
+import CircleButton from "../components/CircleButton";
+import HomeButton from "../components/HomeButton";
 import Link from "next/link";
+import BackButton from "../components/BackButton";
 
 const Page = () => {
   useEffect(() => {
@@ -23,9 +25,17 @@ const Page = () => {
         <Image src={bg} fill alt="background" />
       </div>
 
+      {/* <div className="absolute top-[10%] left-[70px] cursor-pointer">
+        <BackButton />
+      </div> */}
+
+      <div className="absolute top-[10%] left-[70px] cursor-pointer">
+        <HomeButton />
+      </div>
+
       <div className="absolute top-[-10px] right-[-10px]">
         <Link href="/doms">
-          <Circle text="DoMs"></Circle>
+          <CircleButton text="DoMs"></CircleButton>
         </Link>
       </div>
       <div className="flex min-h-screen items-center">

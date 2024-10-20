@@ -9,6 +9,8 @@ import { Inter } from "next/font/google";
 import styled from "styled-components";
 import Circle from "../components/Circle";
 import Link from "next/link";
+import CircleButton from "../components/CircleButton";
+import HomeButton from "../components/HomeButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -63,8 +65,11 @@ export default function Scroll() {
         trigger: container,
         pin: true,
         scrub: 1,
-        end: "+=4200",
+        // start: "top top",
+        end: "+=4500",
         // markers: true,
+        pinSpacing: false,
+        // pinSpacer: false,
       },
     });
 
@@ -78,17 +83,19 @@ export default function Scroll() {
         scrub: 1,
         end: "+=5300",
         // markers: true,
-        // pinSpacing: false,
+
+        pinSpacing: false,
       },
     });
 
     // Progress bar animation
     gsap.to(mask, {
-      width: "100%",
+      width: "105%",
       scrollTrigger: {
         trigger: wrapperRef.current,
         start: "top left",
         scrub: 1,
+        pinSpacing: false,
       },
     });
 
@@ -108,16 +115,37 @@ export default function Scroll() {
           containerAnimation: scrollTween,
           toggleActions: "restart none none none",
           start: "left center",
+          pinSpacing: false,
           // markers: true,
         },
       });
     });
 
+    gsap.set(document.querySelector(".pin-spacer"), { paddingBottom: "100px" });
+
     return () => ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden");
+    setTimeout(() => {
+      document.body.classList.remove("overflow-hidden");
+    }, 2000);
+
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
   }, []);
 
   return (
     <StyledWrapper>
+      <div className="fixed top-[7%] z-50 left-[70px] transform translate-x-1/2">
+        <HomeButton />
+      </div>
       <div className={`min-h-screen relative ${inter.className}`}>
         <div ref={imgRef} className="fixed top-0 left-0 w-full h-screen -z-10">
           <Image
@@ -130,124 +158,126 @@ export default function Scroll() {
         </div>
 
         <div ref={wrapperRef} className="wrapper overflow-x-hidden relative">
-          <div
-            ref={containerRef}
-            className="container  scrollx flex w-[400vw] "
-          >
-            <div className="absolute flex flex-col gap-2 items-center left-[40%] top-14 w-[600px]">
-              <h1 className="text-5xl font-bold">Our Learning Journey</h1>
-              <h2 className="text-[1.7rem] text-cyan-400 font-bold">
-                Mapping the academic curriculum
-              </h2>
-            </div>
-
-            <svg
-              ref={svgRef}
-              className="absolute top-[18em] left-[10vw] w-[300vw]"
-              viewBox="0 0 900 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          <div className="h h-[5200px]">
+            <div
+              ref={containerRef}
+              className="container scrollx flex items-center w-[400vw] "
             >
-              <path
-                d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H445.1C445.563 1.71776 447.581 0 450 0C452.419 0 454.437 1.71776 454.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H454.9C454.437 8.28224 452.419 10 450 10C447.581 10 445.563 8.28224 445.1 6H9.89998Z"
-                fill="#152329"
-              />
-              <mask
-                id="mask0_0_1"
-                maskUnits="userSpaceOnUse"
-                x={0}
-                y={0}
-                width={1000}
-                height={200}
+              <div className="absolute text-center top-[50px] w-[100vw]">
+                <h1 className="text-5xl font-bold">Our Learning Journey</h1>
+                <h2 className="text-[1.7rem] text-cyan-400 font-bold">
+                  Mapping the academic curriculum
+                </h2>
+              </div>
+
+              <svg
+                ref={svgRef}
+                className="absolute top-[27%] left-[10vw] w-[300vw]"
+                viewBox="0 0 900 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H445.1C445.563 1.71776 447.581 0 450 0C452.419 0 454.437 1.71776 454.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H454.9C454.437 8.28224 452.419 10 450 10C447.581 10 445.563 8.28224 445.1 6H9.89998Z"
-                  fill="#D9D9D9"
+                  fill="#152329"
                 />
-              </mask>
-              <g mask="url(#mask0_0_1)">
-                <rect
-                  ref={maskRef}
-                  className="mask w-4"
-                  y={-49}
-                  height={99}
-                  fill="#00DDFF"
-                />
-              </g>
-            </svg>
-            <section
-              ref={section1Ref}
-              className="section mt-10 pin sec1 w-[100vw] py-[20vw] px-[10vw]"
-            >
-              <span></span>
-              <h1 className=" text-7xl m-0 pb-2 text-[#00DDFF]">Q1</h1>
+                <mask
+                  id="mask0_0_1"
+                  maskUnits="userSpaceOnUse"
+                  x={0}
+                  y={0}
+                  width={1000}
+                  height={200}
+                >
+                  <path
+                    d="M9.89998 6C9.43671 8.28224 7.41896 10 5 10C2.23858 10 0 7.76142 0 5C0 2.23858 2.23858 0 5 0C7.41896 0 9.43671 1.71776 9.89998 4H445.1C445.563 1.71776 447.581 0 450 0C452.419 0 454.437 1.71776 454.9 4H890.1C890.563 1.71776 892.581 0 895 0C897.761 0 900 2.23858 900 5C900 7.76142 897.761 10 895 10C892.581 10 890.563 8.28224 890.1 6H454.9C454.437 8.28224 452.419 10 450 10C447.581 10 445.563 8.28224 445.1 6H9.89998Z"
+                    fill="#D9D9D9"
+                  />
+                </mask>
+                <g mask="url(#mask0_0_1)">
+                  <rect
+                    ref={maskRef}
+                    className="mask w-4"
+                    y={-49}
+                    height={99}
+                    fill="#00DDFF"
+                  />
+                </g>
+              </svg>
+              <section
+                ref={section1Ref}
+                className="section mt-10 pin sec1 w-[100vw] py-[20vw] px-[10vw]"
+              >
+                <span></span>
+                <h1 className=" text-7xl m-0 pb-2 text-[#00DDFF]">Q1</h1>
 
-              <div className="col flex gap-[3em]">
-                <div className="text-2xl w-[50vw] ml-2">
-                  <div>Management Principles and Organizational</div>
-                  <div>Behavior Quantitative Techniques</div>
-                  <div>Marketing Management</div>
-                  <div>Accounting for Managers</div>
+                <div className="col flex gap-[3em]">
+                  <div className="text-2xl w-[50vw] ml-2">
+                    <div>Management Principles and Organizational</div>
+                    <div>Behavior Quantitative Techniques</div>
+                    <div>Marketing Management</div>
+                    <div>Accounting for Managers</div>
+                  </div>
+                  <div className="text-2xl w-[50vw]">
+                    <div>Managerial Economics</div>
+                    <div>Legal Systems in Business Information</div>
+                    <div>Systems for Business</div>
+                    <div>Soft Skills I - Executive Communication</div>
+                  </div>
                 </div>
-                <div className="text-2xl w-[50vw]">
-                  <div>Managerial Economics</div>
-                  <div>Legal Systems in Business Information</div>
-                  <div>Systems for Business</div>
-                  <div>Soft Skills I - Executive Communication</div>
-                </div>
-              </div>
-            </section>
-            {/*  */}
-            <section
-              ref={section2Ref}
-              className="sec2  mt-10 section w-[100vw]  py-[20vw] px-[10vw]"
-            >
-              {/* <span className="anim">Advanced2</span> */}
-              <h1 className="anim text-7xl m-0 pb-2 text-[#00DDFF]">Q2</h1>
+              </section>
+              {/*  */}
+              <section
+                ref={section2Ref}
+                className="sec2  mt-10 section w-[100vw]  py-[20vw] px-[10vw]"
+              >
+                {/* <span className="anim">Advanced2</span> */}
+                <h1 className="anim text-7xl m-0 pb-2 text-[#00DDFF]">Q2</h1>
 
-              <div className="col anim flex gap-[3em]">
-                <div className="text-2xl anim w-[50vw] ml-2">
-                  <div>Management Principles and Organizational</div>
-                  <div>Behavior Quantitative Techniques</div>
-                  <div>Marketing Management</div>
-                  <div>Accounting for Managers</div>
+                <div className="col anim flex gap-[3em]">
+                  <div className="text-2xl anim w-[50vw] ml-2">
+                    <div>Management Principles and Organizational</div>
+                    <div>Behavior Quantitative Techniques</div>
+                    <div>Marketing Management</div>
+                    <div>Accounting for Managers</div>
+                  </div>
+                  <div className="text-2xl w-[50vw]">
+                    <div>Managerial Economics</div>
+                    <div>Legal Systems in Business Information</div>
+                    <div>Systems for Business</div>
+                    <div>Soft Skills I - Executive Communication</div>
+                  </div>
                 </div>
-                <div className="text-2xl w-[50vw]">
-                  <div>Managerial Economics</div>
-                  <div>Legal Systems in Business Information</div>
-                  <div>Systems for Business</div>
-                  <div>Soft Skills I - Executive Communication</div>
-                </div>
-              </div>
-            </section>
-            {/*  */}
-            <section
-              ref={section3Ref}
-              className="sec3 section  mt-10 w-[100vw] py-[20vw] px-[10vw]"
-            >
-              {/* <span className="anim">Advanced3</span> */}
-              <h1 className="anim text-7xl m-0 pb-2 text-[#00DDFF]">Q3</h1>
+              </section>
+              {/*  */}
+              <section
+                ref={section3Ref}
+                className="sec3 section  mt-10 w-[100vw] py-[20vw] px-[10vw]"
+              >
+                {/* <span className="anim">Advanced3</span> */}
+                <h1 className="anim text-7xl m-0 pb-2 text-[#00DDFF]">Q3</h1>
 
-              <div className="col anim flex gap-[3em]">
-                <div className="text-2xl anim w-[50vw] ml-2">
-                  <div>Management Principles and Organizational</div>
-                  <div>Behavior Quantitative Techniques</div>
-                  <div>Marketing Management</div>
-                  <div>Accounting for Managers</div>
+                <div className="col anim flex gap-[3em]">
+                  <div className="text-2xl anim w-[50vw] ml-2">
+                    <div>Management Principles and Organizational</div>
+                    <div>Behavior Quantitative Techniques</div>
+                    <div>Marketing Management</div>
+                    <div>Accounting for Managers</div>
+                  </div>
+                  <div className="text-2xl w-[50vw]">
+                    <div>Managerial Economics</div>
+                    <div>Legal Systems in Business Information</div>
+                    <div>Systems for Business</div>
+                    <div>Soft Skills I - Executive Communication</div>
+                  </div>
                 </div>
-                <div className="text-2xl w-[50vw]">
-                  <div>Managerial Economics</div>
-                  <div>Legal Systems in Business Information</div>
-                  <div>Systems for Business</div>
-                  <div>Soft Skills I - Executive Communication</div>
-                </div>
-              </div>
-            </section>
+              </section>
+            </div>
           </div>
         </div>
-        <div className="fixed bottom-[-70px] right-[50%]">
+        <div className="fixed bottom-[-70px] right-[50%] translate-x-1/2 ">
           <Link href="/students">
-            <Circle text="Student"></Circle>
+            <CircleButton text="Students" />
           </Link>
         </div>
         {/* <section className="bg-blue-300 h-[100vh]"></section> */}

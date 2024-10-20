@@ -16,7 +16,8 @@ import { SiGooglemarketingplatform } from "react-icons/si";
 import { MdTour } from "react-icons/md";
 import { GrWorkshop } from "react-icons/gr";
 import StudentCard from "../components/StudentCard";
-import Circle from "../components/Circle";
+import CircleButton from "../components/CircleButton";
+import HomeButton from "../components/HomeButton";
 
 const Page = () => {
   useEffect(() => {
@@ -133,16 +134,27 @@ const Page = () => {
         <Image ref={bgRef} src={bg} fill alt="background" />
       </div>
 
-      <div className="absolute bottom-[-10px] left-[-10px]">
+      <div
+        className="fixed top-[7%] z-50 xl:left-[50px] 
+      md:left-[40px]
+      transform translate-x-1/2"
+      >
+        <HomeButton />
+      </div>
+
+      <div className="absolute bottom-[-25px] left-[-25px]">
         <Link href="/professors">
-          <Circle text="Faculty"></Circle>
+          <CircleButton text="Faculty"></CircleButton>
         </Link>
       </div>
 
       <h1
-        className={`absolute text-5xl font-semibold ${
-          visible ? "block" : "hidden"
-        }`}
+        className={`absolute font-semibold
+          2xl:text-5xl
+          xl:text-4xl
+          lg:text-3xl
+          md:text-2xl 
+          ${visible ? "block" : "hidden"}`}
         ref={t1Ref}
       >
         Professional Specialization Combinations
